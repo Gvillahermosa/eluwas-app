@@ -1,0 +1,46 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { injectStyles } from './utils/styles';
+import { TopNav } from './components/TopNav';
+import { Footer } from './components/Footer';
+import { HomeSection } from './pages/HomeSection';
+import { RegisterSection } from './pages/RegisterSection';
+import { SeminarsSection } from './pages/SeminarsSection';
+import { QRSection } from './pages/QRSection';
+import { AwarenessSection } from './pages/AwarenessSection';
+import { InspectionSection } from './pages/InspectionSection';
+import { FeedbackSection } from './pages/FeedbackSection';
+import { AnalyticsSection } from './pages/AnalyticsSection';
+import { AdminDashboard } from './pages/AdminDashboard';
+import { VendorDashboard } from './pages/VendorDashboard';
+
+export default function App() {
+  useEffect(() => {
+    injectStyles();
+  }, []);
+
+  return (
+    <BrowserRouter>
+      <div className="app-container">
+        <TopNav />
+        <main className="main-content">
+          <Routes>
+            <Route path='/' element={<HomeSection />} />
+            <Route path='/register' element={<RegisterSection />} />
+            <Route path='/login' element={<RegisterSection isLogin={true} />} />
+            <Route path='/seminars' element={<SeminarsSection />} />
+            <Route path='/qr-verify' element={<QRSection />} />
+            <Route path='/awareness' element={<AwarenessSection />} />
+            <Route path='/inspection' element={<InspectionSection />} />
+            <Route path='/feedback' element={<FeedbackSection />} />
+            <Route path='/analytics' element={<AnalyticsSection />} />
+            <Route path='/admin-dashboard' element={<AdminDashboard />} />
+            <Route path='/vendor-dashboard' element={<VendorDashboard />} />
+            <Route path='*' element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
+}
