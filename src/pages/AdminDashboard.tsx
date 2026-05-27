@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getStoredVendors, saveStoredVendor, updateVendorStatus } from '../utils/storage';
-import { useNavigate } from 'react-router-dom';
+import { getStoredVendors, updateVendorStatus } from '../utils/storage';
 import { C } from '../utils/theme';
 
 export function AdminDashboard() {
