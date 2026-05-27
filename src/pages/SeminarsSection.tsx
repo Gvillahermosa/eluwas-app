@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import kwekKwekImg from '../assets/foods/kwek-kwek-1.webp';
 import { useNavigate } from 'react-router-dom';
 import { C } from '../utils/theme';

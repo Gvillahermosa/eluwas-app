@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getStoredVendors, saveStoredVendor, updateVendorStatus } from '../utils/storage';
 import { useNavigate } from 'react-router-dom';
 import { C } from '../utils/theme';

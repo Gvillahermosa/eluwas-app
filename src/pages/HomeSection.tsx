@@ -1,4 +1,3 @@
-import React from 'react';
 import balut from '../assets/foods/balut.webp';
 import KwekKwek1 from '../assets/foods/kwek-kwek-1.webp';
 import turon from '../assets/foods/turon.webp';
