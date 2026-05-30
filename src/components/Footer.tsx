@@ -54,7 +54,7 @@ export function Footer() {
               Platform
             </div>
             {(
-              ["register", "seminars", "qr-verify", "awareness"] 
+              ["register", "seminars", "awareness"] 
             ).map((s) => (
               <div
                 key={s}
@@ -108,13 +108,13 @@ export function Footer() {
               Contact
             </div>
             <p style={{ fontSize: 12, lineHeight: 1.8 }}>
-              City Health Office
+              Argao Health Office
               <br />
-              Cebu City, Philippines
+              Argao, Philippines
               <br />
               📞 (032) 888-FOOD
               <br />
-              📧 eluwas@cebucity.gov.ph
+              📧 eluwas@argao.gov.ph
             </p>
           </div>
         </div>

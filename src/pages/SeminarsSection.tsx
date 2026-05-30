@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import kwekKwekImg from '../assets/foods/kwek-kwek-1.webp';
-import { C } from '../utils/theme';
+import { useState } from "react";
+import { C } from "../utils/theme";
 
 export function SeminarsSection() {
   const [enrolled, setEnrolled] = useState<number | null>(null);
@@ -21,7 +20,7 @@ export function SeminarsSection() {
       modules: 4,
       level: "Beginner",
       badge: "Required",
-      img: "https://images.unsplash.com/photo-1584473457493-00d3461dd9e6?w=300&h=160&fit=crop",
+      img: "https://images.unsplash.com/photo-1556910110-a5a63dfd393c?w=300&h=160&fit=crop",
     },
     {
       id: 3,
@@ -30,7 +29,7 @@ export function SeminarsSection() {
       modules: 6,
       level: "Intermediate",
       badge: "Elective",
-      img: kwekKwekImg,
+      img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=300&h=160&fit=crop",
     },
     {
       id: 4,
@@ -39,7 +38,7 @@ export function SeminarsSection() {
       modules: 3,
       level: "Intermediate",
       badge: "Elective",
-      img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=300&h=160&fit=crop",
+      img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=300&h=160&fit=crop",
     },
     {
       id: 5,
@@ -48,7 +47,7 @@ export function SeminarsSection() {
       modules: 4,
       level: "Beginner",
       badge: "Required",
-      img: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300&h=160&fit=crop",
+      img: "https://images.unsplash.com/photo-1584824486516-0555a07fc511?w=300&h=160&fit=crop",
     },
     {
       id: 6,
@@ -57,12 +56,15 @@ export function SeminarsSection() {
       modules: 8,
       level: "Advanced",
       badge: "Certification",
-      img: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=300&h=160&fit=crop",
+      img: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=300&h=160&fit=crop",
     },
   ];
 
   return (
-    <div className="padding-container" style={{ maxWidth: 1100, margin: "0 auto", padding: "40px 20px" }}>
+    <div
+      className="padding-container"
+      style={{ maxWidth: 1100, margin: "0 auto", padding: "40px 20px" }}
+    >
       <div style={{ marginBottom: 36 }}>
         <span className="section-tag">Digital Training</span>
         <h2

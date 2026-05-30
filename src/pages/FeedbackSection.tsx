@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { C } from '../utils/theme';
+import { useState } from "react";
+import { C } from "../utils/theme";
 
 export function FeedbackSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -109,12 +109,12 @@ export function FeedbackSection() {
           <div className="card fade-up">
             <div className="form-group">
               <label>Vendor Name or ID</label>
-              <input 
-                list="vendors-list" 
-                placeholder="e.g. Nang Maria's Carinderia or ARGAO-V-00241" 
+              <input
+                list="vendors-list"
+                placeholder="e.g. Nang Maria's Carinderia or ARGAO-V-00241"
               />
               <datalist id="vendors-list">
-                {dummyVendors.map(v => (
+                {dummyVendors.map((v) => (
                   <option key={v.id} value={`${v.name} (${v.id})`} />
                 ))}
               </datalist>
@@ -182,7 +182,13 @@ export function FeedbackSection() {
             <button
               className="btn-primary"
               style={{ width: "100%", padding: "13px" }}
-              onClick={() => setSubmitted(true)}
+              onClick={() => {
+                if (rating === 0) {
+                  alert("Please provide a rating before submitting.");
+                  return;
+                }
+                setSubmitted(true);
+              }}
             >
               Submit Feedback
             </button>

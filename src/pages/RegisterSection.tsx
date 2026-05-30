@@ -1,14 +1,9 @@
-import { useState } from 'react';
-import { getStoredVendors, saveStoredVendor } from '../utils/storage';
-import { useNavigate } from 'react-router-dom';
-import { C } from '../utils/theme';
+import { useState } from "react";
+import { getStoredVendors, saveStoredVendor } from "../utils/storage";
+import { useNavigate } from "react-router-dom";
+import { C } from "../utils/theme";
 
-export function RegisterSection({
-  isLogin,
-  }: {
-  isLogin?: boolean;
-  
-}) {
+export function RegisterSection({ isLogin }: { isLogin?: boolean }) {
   const navigate = useNavigate();
 
   const [mode, setMode] = useState<"register" | "login">(
@@ -28,10 +23,11 @@ export function RegisterSection({
   const [regEmail, setRegEmail] = useState("");
   const [regCompany, setRegCompany] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = (e?: React.FormEvent) => {
+    e?.preventDefault();
     setErrorMsg("");
     if (email === "admin@eluwas.gov.ph" && password === "admin123") {
-       navigate("admin");
+      navigate("/admin-dashboard");
       return;
     }
 
@@ -51,7 +47,7 @@ export function RegisterSection({
 
     localStorage.setItem("eluwas_active_vendor", JSON.stringify(vendor));
 
-     navigate("vendor-dashboard");
+    navigate("/vendor-dashboard");
   };
 
   const submitRegistration = () => {
@@ -77,7 +73,10 @@ export function RegisterSection({
   const totalSteps = 2;
 
   return (
-    <div className="padding-container" style={{ maxWidth: 600, margin: "0 auto", padding: "40px 20px" }}>
+    <div
+      className="padding-container"
+      style={{ maxWidth: 600, margin: "0 auto", padding: "40px 20px" }}
+    >
       <div style={{ textAlign: "center", marginBottom: 32 }}>
         <span className="section-tag">
           {mode === "login" ? "Vendor Login" : "Vendor Registration"}

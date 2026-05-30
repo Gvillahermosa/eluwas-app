@@ -1,4 +1,4 @@
-import { C } from './theme';
+import { C } from "./theme";
 
 export // ─── Keyframe injection ───────────────────────────────────────────────────────
 function injectStyles() {
@@ -111,7 +111,7 @@ function injectStyles() {
     .topnav-right { display: flex; align-items: center; gap: 24px; }
     
     .brand-logo { display: flex; align-items: center; gap: 12px; }
-    .brand-logo-icon { width: 34px; height: 34px; background: ${C.emerald}; border-radius: 8px; box-shadow: 0 4px 12px rgba(13,92,58,0.2); }
+    .brand-logo-icon { width: 34px; height: 34px; background: ${C.emerald}; border-radius: 8px; box-shadow: 0 4px 12px rgba(13,92,58,0.2); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-family: 'Playfair Display', serif; font-size: 20px; }
     .brand-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: ${C.emerald}; letter-spacing: -0.5px; margin: 0; line-height: 1; }
     
     .desktop-menu { display: flex; align-items: center; gap: 24px; }
@@ -144,4 +144,3 @@ function injectStyles() {
   `;
   document.head.appendChild(style);
 }
-

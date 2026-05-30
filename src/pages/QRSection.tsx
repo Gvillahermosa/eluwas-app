@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { C } from '../utils/theme';
+import { useState, useEffect, useRef } from "react";
+import { C } from "../utils/theme";
 
 export function QRSection() {
   const [scanning, setScanning] = useState(false);
@@ -7,6 +7,45 @@ export function QRSection() {
     null,
   );
   const [inputId, setInputId] = useState("");
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+
+  useEffect(() => {
+    let timeout: any;
+    if (scanning) {
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: { facingMode: "environment" } })
+          .then((stream) => {
+            streamRef.current = stream;
+            if (videoRef.current) {
+              videoRef.current.srcObject = stream;
+              videoRef.current.play();
+            }
+          })
+          .catch((err) => {
+            console.error("Camera access denied or error:", err);
+          });
+      }
+
+      timeout = setTimeout(() => {
+        setScanning(false);
+        setResult("valid");
+      }, 5000);
+    } else {
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach((track) => track.stop());
+        streamRef.current = null;
+      }
+    }
+
+    return () => {
+      clearTimeout(timeout);
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach((track) => track.stop());
+      }
+    };
+  }, [scanning]);
 
   const vendors: Record<
     string,
@@ -86,6 +125,19 @@ export function QRSection() {
         >
           {scanning ? (
             <>
+              <video
+                ref={videoRef}
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  zIndex: 0,
+                }}
+                playsInline
+                autoPlay
+                muted
+              />
               <div
                 style={{
                   width: 160,
@@ -93,6 +145,7 @@ export function QRSection() {
                   border: "2px solid rgba(255,255,255,0.3)",
                   borderRadius: 8,
                   position: "relative",
+                  zIndex: 1,
                 }}
               >
                 {/* corner brackets */}
@@ -145,21 +198,40 @@ export function QRSection() {
             </div>
           )}
         </div>
-        <button
-          className="btn-primary"
-          style={{ marginBottom: 12 }}
-          onClick={() => {
-            setScanning((s) => !s);
-            if (!scanning) {
-              setTimeout(() => {
-                setScanning(false);
-                setResult("valid");
-              }, 3000);
-            }
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            justifyContent: "center",
+            marginBottom: 12,
           }}
         >
-          {scanning ? "Stop Scanning" : "📷 Open Camera Scanner"}
-        </button>
+          <button
+            className="btn-primary"
+            onClick={() => setScanning((s) => !s)}
+          >
+            {scanning ? "Stop Scanning" : "📷 Open Camera Scanner"}
+          </button>
+
+          <label style={{ cursor: "pointer" }} className="btn-secondary">
+            📁 Upload Picture
+            <input
+              type="file"
+              accept="image/*"
+              style={{ display: "none" }}
+              onChange={(e) => {
+                if (e.target.files && e.target.files[0]) {
+                  setScanning(false);
+                  setResult(null);
+                  // Simulate reading the QR and getting a response
+                  setTimeout(() => {
+                    setResult("valid");
+                  }, 1500);
+                }
+              }}
+            />
+          </label>
+        </div>
         {result === "valid" && (
           <div
             style={{

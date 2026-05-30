@@ -25,12 +25,6 @@ export function HomeSection() {
       key: "seminars" as string,
     },
     {
-      icon: "📱",
-      title: "QR Verification",
-      desc: "Instant vendor license check",
-      key: "qr-verify" as string,
-    },
-    {
       icon: "📢",
       title: "Awareness Campaigns",
       desc: "Social media & public outreach",
