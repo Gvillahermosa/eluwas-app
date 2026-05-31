@@ -20,7 +20,7 @@ export function SeminarsSection() {
       modules: 4,
       level: "Beginner",
       badge: "Required",
-      img: "https://images.unsplash.com/photo-1556910110-a5a63dfd393c?w=300&h=160&fit=crop",
+      img: "https://images.unsplash.com/photo-1584473457493-00d3461dd9e6?w=300&h=160&fit=crop",
     },
     {
       id: 3,
@@ -29,7 +29,7 @@ export function SeminarsSection() {
       modules: 6,
       level: "Intermediate",
       badge: "Elective",
-      img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=300&h=160&fit=crop",
+      img: "https://images.unsplash.com/photo-1615486511484-9040776b2eb3?w=300&h=160&fit=crop",
     },
     {
       id: 4,
@@ -38,7 +38,7 @@ export function SeminarsSection() {
       modules: 3,
       level: "Intermediate",
       badge: "Elective",
-      img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=300&h=160&fit=crop",
+      img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=300&h=160&fit=crop",
     },
     {
       id: 5,
@@ -47,7 +47,7 @@ export function SeminarsSection() {
       modules: 4,
       level: "Beginner",
       badge: "Required",
-      img: "https://images.unsplash.com/photo-1584824486516-0555a07fc511?w=300&h=160&fit=crop",
+      img: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300&h=160&fit=crop",
     },
     {
       id: 6,
@@ -56,7 +56,7 @@ export function SeminarsSection() {
       modules: 8,
       level: "Advanced",
       badge: "Certification",
-      img: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=300&h=160&fit=crop",
+      img: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=300&h=160&fit=crop",
     },
   ];
 
