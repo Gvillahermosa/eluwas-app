@@ -8,14 +8,26 @@ export function AnalyticsSection() {
     { label: "Apr", val: 96 },
     { label: "May", val: 88 },
     { label: "Jun", val: 94 },
+    { label: "Jul", val: 91 },
+    { label: "Aug", val: 82 },
+    { label: "Sep", val: 89 },
+    { label: "Oct", val: 97 },
+    { label: "Nov", val: 84 },
+    { label: "Dec", val: 98 },
   ];
   const categories = [
-    { name: "Street Food", count: 342, pct: 28 },
-    { name: "Rice Meals", count: 285, pct: 23 },
-    { name: "Beverages", count: 198, pct: 16 },
-    { name: "Seafood", count: 176, pct: 14 },
-    { name: "Baked Goods", count: 143, pct: 12 },
-    { name: "Others", count: 96, pct: 7 },
+    { name: "Tempura, Kwek-Kwek, Hotdog, Fish Ball", count: 200, pct: 16 },
+    { name: "Balut", count: 160, pct: 13 },
+    { name: "Fried Chicken", count: 150, pct: 12 },
+    { name: "Barbeque", count: 140, pct: 11 },
+    { name: "Bananacue, Turon", count: 120, pct: 10 },
+    { name: "Refreshments", count: 110, pct: 9 },
+    { name: "Shawarma", count: 100, pct: 8 },
+    { name: "Takoyaki", count: 80, pct: 6 },
+    { name: "Ice Cream", count: 65, pct: 5 },
+    { name: "Burger and Fries", count: 50, pct: 4 },
+    { name: "Puto Bongbong", count: 35, pct: 3 },
+    { name: "Pares", count: 30, pct: 3 },
   ];
   const colors = [
     C.emerald,
@@ -24,6 +36,12 @@ export function AnalyticsSection() {
     C.goldLight,
     "#5a9e6f",
     "#c8a84b",
+    "#7bc08e",
+    "#e6c36a",
+    "#34724b",
+    "#a68936",
+    "#8fd1a1",
+    "#d1b058",
   ];
 
   return (
@@ -95,12 +113,14 @@ export function AnalyticsSection() {
           gridTemplateColumns: "1.4fr 1fr",
           gap: 24,
           marginBottom: 24,
+          alignItems: "stretch",
         }}
         className="grid-2"
       >
-        {/* Bar chart */}
-        <div className="card fade-up">
-          <h3 style={{ fontWeight: 600, color: C.emerald, marginBottom: 20 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          {/* Bar chart */}
+          <div className="card fade-up">
+            <h3 style={{ fontWeight: 600, color: C.emerald, marginBottom: 20 }}>
             Monthly Inspection Scores
           </h3>
           <div
@@ -108,20 +128,20 @@ export function AnalyticsSection() {
               display: "flex",
               gap: 10,
               alignItems: "flex-end",
-              height: 160,
+              height: 280,
               paddingBottom: 24,
               position: "relative",
             }}
           >
             <div
-              style={{ position: "absolute", bottom: 24, left: 0, right: 0 }}
+              style={{ position: "absolute", bottom: 24, left: 0, right: 0, top: 0 }}
             >
               {[100, 75, 50, 25].map((v) => (
                 <div
                   key={v}
                   style={{
                     position: "absolute",
-                    bottom: `${v * 1.2}%`,
+                    bottom: `${v}%`,
                     left: 0,
                     right: 0,
                     borderTop: `1px dashed ${C.creamDark}`,
@@ -135,6 +155,7 @@ export function AnalyticsSection() {
                       color: C.textLight,
                       marginLeft: "auto",
                       paddingRight: 4,
+                      transform: "translateY(-50%)",
                     }}
                   >
                     {v}
@@ -149,32 +170,36 @@ export function AnalyticsSection() {
                   flex: 1,
                   display: "flex",
                   flexDirection: "column",
+                  justifyContent: "flex-end",
                   alignItems: "center",
                   gap: 6,
+                  height: "100%",
                   position: "relative",
                   zIndex: 1,
                 }}
               >
-                <span
-                  style={{ fontSize: 10, color: C.textMuted, fontWeight: 500 }}
-                >
-                  {b.val}
-                </span>
-                <div
-                  style={{
-                    width: "70%",
-                    height: `${b.val * 1.2}%`,
-                    background: C.emerald,
-                    borderRadius: "4px 4px 0 0",
-                    transition: "height 0.5s ease",
-                  }}
-                />
+                <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", alignItems: "center", width: "100%", height: "100%" }}>
+                  <span
+                    style={{ fontSize: 10, color: C.textMuted, fontWeight: 500, marginBottom: 2 }}
+                  >
+                    {b.val}
+                  </span>
+                  <div
+                    style={{
+                      width: "70%",
+                      height: `${b.val}%`,
+                      background: C.emerald,
+                      borderRadius: "4px 4px 0 0",
+                      transition: "height 0.5s ease",
+                    }}
+                  />
+                </div>
                 <span
                   style={{
                     fontSize: 11,
                     color: C.textLight,
                     position: "absolute",
-                    bottom: -20,
+                    bottom: -24,
                   }}
                 >
                   {b.label}
@@ -182,6 +207,74 @@ export function AnalyticsSection() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Recent alerts */}
+        <div className="card fade-up fade-up-3">
+          <h3 style={{ fontWeight: 600, color: C.emerald, marginBottom: 16 }}>
+            Recent Alerts & Flags
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Vendor</th>
+                <th>Issue</th>
+                <th>Severity</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                {
+                  v: "Mang Juan's Fish Ball",
+                  issue: "Failed inspection (score 61)",
+                  sev: "High",
+                  date: "May 8",
+                },
+                {
+                  v: "Aling Nena's Balut",
+                  issue: "3 hygiene flags",
+                  sev: "Medium",
+                  date: "May 12",
+                },
+                {
+                  v: "Crispy Fried Chicken Stall",
+                  issue: "License expired (90 days)",
+                  sev: "High",
+                  date: "May 14",
+                },
+                {
+                  v: "Kuya's Barbeque Stand",
+                  issue: "Incomplete requirements",
+                  sev: "Low",
+                  date: "May 15",
+                },
+              ].map((r, i) => (
+                <tr key={i}>
+                  <td style={{ fontWeight: 500 }}>{r.v}</td>
+                  <td style={{ color: C.textMuted }}>{r.issue}</td>
+                  <td>
+                    <span
+                      className={`badge ${r.sev === "High" ? "badge-red" : r.sev === "Medium" ? "badge-gold" : "badge-blue"}`}
+                    >
+                      {r.sev}
+                    </span>
+                  </td>
+                  <td style={{ color: C.textLight }}>{r.date}</td>
+                  <td>
+                    <button
+                      className="btn-outline"
+                      style={{ fontSize: 11, padding: "4px 10px" }}
+                    >
+                      Review
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         </div>
 
         {/* Vendor categories */}
@@ -223,73 +316,6 @@ export function AnalyticsSection() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Recent alerts */}
-      <div className="card fade-up fade-up-3">
-        <h3 style={{ fontWeight: 600, color: C.emerald, marginBottom: 16 }}>
-          Recent Alerts & Flags
-        </h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Vendor</th>
-              <th>Issue</th>
-              <th>Severity</th>
-              <th>Date</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              {
-                v: "Chicharron Central",
-                issue: "Failed inspection (score 61)",
-                sev: "High",
-                date: "May 8",
-              },
-              {
-                v: "Manong's Balut",
-                issue: "3 hygiene flags",
-                sev: "Medium",
-                date: "May 12",
-              },
-              {
-                v: "Expired Stall #44",
-                issue: "License expired (90 days)",
-                sev: "High",
-                date: "May 14",
-              },
-              {
-                v: "New Vendor #88",
-                issue: "Incomplete requirements",
-                sev: "Low",
-                date: "May 15",
-              },
-            ].map((r, i) => (
-              <tr key={i}>
-                <td style={{ fontWeight: 500 }}>{r.v}</td>
-                <td style={{ color: C.textMuted }}>{r.issue}</td>
-                <td>
-                  <span
-                    className={`badge ${r.sev === "High" ? "badge-red" : r.sev === "Medium" ? "badge-gold" : "badge-blue"}`}
-                  >
-                    {r.sev}
-                  </span>
-                </td>
-                <td style={{ color: C.textLight }}>{r.date}</td>
-                <td>
-                  <button
-                    className="btn-outline"
-                    style={{ fontSize: 11, padding: "4px 10px" }}
-                  >
-                    Review
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </div>
     </div>
   );

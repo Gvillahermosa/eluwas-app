@@ -1,12 +1,12 @@
-import balut from '../assets/foods/balut.webp';
-import KwekKwek1 from '../assets/foods/kwek-kwek-1.webp';
-import turon from '../assets/foods/turon.webp';
-import pares from '../assets/foods/pares.webp';
-import tempura from '../assets/foods/tempura.webp';
-import kwekKwekImg from '../assets/foods/kwek-kwek-1.webp';
-import bbq from '../assets/foods/balut.webp';
-import { useNavigate } from 'react-router-dom';
-import { C } from '../utils/theme';
+import balut from "../assets/foods/balut.webp";
+import KwekKwek1 from "../assets/foods/kwek-kwek-1.webp";
+import turon from "../assets/foods/turon.webp";
+import pares from "../assets/foods/pares.webp";
+import tempura from "../assets/foods/tempura.webp";
+import kwekKwekImg from "../assets/foods/kwek-kwek-1.webp";
+import bbq from "../assets/foods/balut.webp";
+import { useNavigate } from "react-router-dom";
+import { C } from "../utils/theme";
 
 export function HomeSection() {
   const navigate = useNavigate();
@@ -212,7 +212,10 @@ export function HomeSection() {
       </div>
 
       {/* Stats bar */}
-      <div className="padding-container" style={{ background: C.gold, padding: "20px 20px" }}>
+      <div
+        className="padding-container"
+        style={{ background: C.gold, padding: "20px 20px" }}
+      >
         <div
           style={{
             maxWidth: 900,
@@ -252,7 +255,10 @@ export function HomeSection() {
       </div>
 
       {/* Features grid */}
-      <div className="padding-container" style={{ maxWidth: 1100, margin: "0 auto", padding: "60px 20px" }}>
+      <div
+        className="padding-container"
+        style={{ maxWidth: 1100, margin: "0 auto", padding: "60px 20px" }}
+      >
         <div style={{ textAlign: "center", marginBottom: 40 }}>
           <span className="section-tag">Platform Modules</span>
           <h2
@@ -312,7 +318,10 @@ export function HomeSection() {
       </div>
 
       {/* Vendor spotlight */}
-      <div className="padding-container" style={{ background: C.creamDark, padding: "48px 20px" }}>
+      <div
+        className="padding-container"
+        style={{ background: C.creamDark, padding: "48px 20px" }}
+      >
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
             <span className="section-tag">Featured Vendors</span>
@@ -338,7 +347,7 @@ export function HomeSection() {
           >
             {[
               {
-                name: "Nang Caring's Fishball & Tempura",
+                name: "Mang Juan's Fish Ball",
                 location: "Don Gil Argao Street",
                 rating: "4.9",
                 cert: "Grade A",
@@ -352,7 +361,7 @@ export function HomeSection() {
                 img: kwekKwekImg,
               },
               {
-                name: "Cebu Fried Chicken & BBQ",
+                name: "Aling Nena's Balut",
                 location: "Don Gil Argao Street",
                 rating: "4.8",
                 cert: "Grade B",

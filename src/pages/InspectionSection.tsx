@@ -6,7 +6,7 @@ export function InspectionSection() {
   const inspections = [
     {
       id: 1,
-      vendor: "Nang Caring's Puso",
+      vendor: "Mang Juan's Fish Ball",
       date: "May 14, 2025",
       inspector: "R. Mercado",
       score: 92,
@@ -15,7 +15,7 @@ export function InspectionSection() {
     },
     {
       id: 2,
-      vendor: "Manong's Balut",
+      vendor: "Aling Nena's Balut",
       date: "May 12, 2025",
       inspector: "L. Santos",
       score: 78,
@@ -24,7 +24,7 @@ export function InspectionSection() {
     },
     {
       id: 3,
-      vendor: "Sweet Turon Express",
+      vendor: "Crispy Fried Chicken Stall",
       date: "May 10, 2025",
       inspector: "M. Garcia",
       score: 96,
@@ -33,7 +33,7 @@ export function InspectionSection() {
     },
     {
       id: 4,
-      vendor: "Chicharron Central",
+      vendor: "Kuya's Barbeque Stand",
       date: "May 8, 2025",
       inspector: "R. Mercado",
       score: 61,
@@ -42,7 +42,7 @@ export function InspectionSection() {
     },
     {
       id: 5,
-      vendor: "Biko ni Lola",
+      vendor: "Tita's Bananacue & Turon",
       date: "May 6, 2025",
       inspector: "L. Santos",
       score: 88,

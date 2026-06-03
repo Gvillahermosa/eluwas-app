@@ -1,5 +1,8 @@
-import { C } from '../utils/theme';
-
+import { C } from "../utils/theme";
+import foodstall from "../assets/awareness/food_stall.webp";
+import certified from "../assets/awareness/certified.webp";
+import qr from "../assets/awareness/qr.webp";
+import eluwas from "../assets/awareness/eluwas.jpg";
 export function AwarenessSection() {
   const posts = [
     {
@@ -7,28 +10,29 @@ export function AwarenessSection() {
       icon: "👍",
       title: "5 Signs of a Safe Street Food Stall",
       reach: "12.4K",
-      img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&h=180&fit=crop",
+      img: foodstall,
     },
     {
       platform: "TikTok",
       icon: "🎵",
       title: "Paano Malaman ang Certified Vendors?",
       reach: "34.1K",
-      img: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&h=180&fit=crop",
+      img: certified,
+      imgPosition: "50% 70%", // Left/Right (X) and Top/Bottom (Y) percentages
     },
     {
       platform: "Instagram",
       icon: "📸",
       title: "Behind the QR: How Licensing Works",
       reach: "8.7K",
-      img: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=300&h=180&fit=crop",
+      img: qr,
     },
     {
       platform: "YouTube",
       icon: "▶",
-      title: "Cebu's e-Luwas Program Explained",
+      title: "Argao's e-Luwas Program Explained",
       reach: "6.2K",
-      img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=300&h=180&fit=crop",
+      img: eluwas,
     },
   ];
 
@@ -113,7 +117,12 @@ export function AwarenessSection() {
             <img
               src={p.img}
               alt={p.title}
-              style={{ width: "100%", height: 160, objectFit: "cover" }}
+              style={{
+                width: "100%",
+                height: 160,
+                objectFit: "cover",
+                objectPosition: p.imgPosition || "center",
+              }}
             />
             <div style={{ padding: "16px 18px" }}>
               <div

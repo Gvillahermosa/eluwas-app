@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { C } from "../utils/theme";
-
+import foodhandler from "../assets/seminars/hygine.webp";
+import storage from "../assets/seminars/storage.webp";
+import crosscontamination from "../assets/seminars/cross contamination.webp";
+import allergens from "../assets/seminars/allergen.webp";  
+import hygine from "../assets/seminars/waste.webp";
+import exam from "../assets/seminars/exam.webp";
 export function SeminarsSection() {
   const [enrolled, setEnrolled] = useState<number | null>(null);
   const courses = [
@@ -11,7 +16,7 @@ export function SeminarsSection() {
       modules: 5,
       level: "Beginner",
       badge: "Required",
-      img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=160&fit=crop",
+      img: foodhandler,
     },
     {
       id: 2,
@@ -20,7 +25,7 @@ export function SeminarsSection() {
       modules: 4,
       level: "Beginner",
       badge: "Required",
-      img: "https://images.unsplash.com/photo-1584473457493-00d3461dd9e6?w=300&h=160&fit=crop",
+      img: storage,
     },
     {
       id: 3,
@@ -29,7 +34,8 @@ export function SeminarsSection() {
       modules: 6,
       level: "Intermediate",
       badge: "Elective",
-      img: "https://images.unsplash.com/photo-1615486511484-9040776b2eb3?w=300&h=160&fit=crop",
+      img: crosscontamination,
+      objectPosition: "left", // Push to the right
     },
     {
       id: 4,
@@ -38,7 +44,7 @@ export function SeminarsSection() {
       modules: 3,
       level: "Intermediate",
       badge: "Elective",
-      img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=300&h=160&fit=crop",
+      img: allergens,
     },
     {
       id: 5,
@@ -47,7 +53,7 @@ export function SeminarsSection() {
       modules: 4,
       level: "Beginner",
       badge: "Required",
-      img: "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300&h=160&fit=crop",
+      img: hygine,
     },
     {
       id: 6,
@@ -56,7 +62,7 @@ export function SeminarsSection() {
       modules: 8,
       level: "Advanced",
       badge: "Certification",
-      img: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=300&h=160&fit=crop",
+      img: exam,
     },
   ];
 
@@ -124,6 +130,7 @@ export function SeminarsSection() {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
+                objectPosition: (courses.find((c) => c.id === enrolled) as any)?.objectPosition || "center",
                 opacity: 0.4,
               }}
             />
@@ -220,7 +227,7 @@ export function SeminarsSection() {
               <img
                 src={c.img}
                 alt={c.title}
-                style={{ width: "100%", height: 140, objectFit: "cover" }}
+                style={{ width: "100%", height: 140, objectFit: "cover", objectPosition: (c as any).objectPosition || "center" }}
               />
               <div style={{ padding: "16px 18px" }}>
                 <div style={{ display: "flex", gap: 6, marginBottom: 10 }}>
